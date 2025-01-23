@@ -8,21 +8,21 @@ const camera = new THREE.PerspectiveCamera(
     0.1, // Near clipping plane
     1000 // Far clipping plane
 );
-camera.position.z = 5; // Move the camera away from the origin
+camera.position.z = 5; //camera points into page from position out of page aha
 
 // Make renderer and add it to the DOM
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Load background texture
-const textureLoader = new THREE.TextureLoader();
-const bgTexture = textureLoader.load('testbg.png');
-scene.background = bgTexture; // Set the background of the scene
 
-// Torus Knot geometry
+const textureLoader = new THREE.TextureLoader();
+const bgTexture = textureLoader.load('testbg2.png');
+scene.background = bgTexture; // we just made the thing uhhhh wai i didnt make it clear nvm 
+
+
 const geometry = new THREE.TorusKnotGeometry(0.5, 0.2, 200, 30);
-const matcapTexture = textureLoader.load("https://bruno-simon.com/prismic/matcaps/3.png"); // Using an external texture
+const matcapTexture = textureLoader.load("https://bruno-simon.com/prismic/matcaps/3.png"); //haha torus texture
 const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
 const torusKnot = new THREE.Mesh(geometry, material);
 
